@@ -1,0 +1,26 @@
+{
+  "id" : "2fb67695-42fb-483c-b856-f915c3605597",
+  "request" : {
+    "url" : "/v1/objects/match",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "matchesJsonPath" : "$.['pids'][?(@ == 'bhckh500')]"
+    }, {
+      "matchesJsonPath" : "$.['values'][*][?(@.['path'] == 'text content here')]"
+    }, {
+      "matchesJsonPath" : "$.['pids'][?(@ == 'adki46')]"
+    }, {
+      "matchesJsonPath" : "$.['pids'][?(@ == 'adki47')]"
+    }, {
+      "matchesJsonPath" : "$.['values'][*][?(@.['type'] == 'name')]"
+    }, {
+      "matchesJsonPath" : "$.['values'][*][?(@.['type'] == 'description')]"
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"pids\":[{\"score\":0.8,\"oid\":\"adki46\"},{\"score\":0.75,\"oid\":\"adki47\"}]}",
+    "transformers" : [ "response-template" ]
+  },
+  "uuid" : "2fb67695-42fb-483c-b856-f915c3605597"
+}

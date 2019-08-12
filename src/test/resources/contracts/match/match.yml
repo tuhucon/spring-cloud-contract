@@ -1,0 +1,9 @@
+description: test match method - with mock for image and text processing service
+name: test match method
+request:
+  url: /match
+  method: GET
+response:
+  status: 200
+  body:
+    count: 4
