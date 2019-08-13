@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.FilteredClassLoader;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
+import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties;
 import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;
 import org.springframework.cloud.contract.wiremock.WireMockSpring;
 import org.springframework.test.context.ActiveProfiles;
@@ -29,23 +30,30 @@ import java.util.UUID;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @ActiveProfiles("test")
-@AutoConfigureStubRunner
+@AutoConfigureStubRunner(
+        stubsMode = StubRunnerProperties.StubsMode.REMOTE,
+        repositoryRoot = "git://git@github.com:tuhucon/spring-cloud-contract-git.git",
+        ids = {
+                "com.example:spring-cloud-contract-image-git:0.0.1-SNAPSHOT:8081",
+                "com.example:spring-cloud-contract-text-git:0.0.2-SNAPSHOT:8082"
+        }
+)
 public abstract class MatchBase {
 
     @Autowired
     WebApplicationContext webApplicationContext;
 
-    @ClassRule
-    public static WireMockClassRule imageWireMock = new WireMockClassRule(WireMockSpring.options()
-            .port(8081)
+//    @ClassRule
+//    public static WireMockClassRule imageWireMock = new WireMockClassRule(WireMockSpring.options()
+//            .port(8081)
 //            .mappingSource(new JsonFileMappingsSource(new ClasspathFileSource("mappings/imageService")))
-    );
-
-    @ClassRule
-    public static WireMockClassRule textWireMock = new WireMockClassRule(WireMockSpring.options()
-            .port(8082)
+//    );
+//
+//    @ClassRule
+//    public static WireMockClassRule textWireMock = new WireMockClassRule(WireMockSpring.options()
+//            .port(8082)
 //            .mappingSource(new JsonFileMappingsSource(new ClasspathFileSource("mappings/textService")))
-    );
+//    );
 
     @Before
     public void setup() {
