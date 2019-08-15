@@ -26,7 +26,7 @@ public class ImageProcessingService {
     @PostConstruct
     void init() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(String.format("%s:%d", configuration.hostname, configuration.port))
+                .baseUrl(String.format("%s:%d", configuration.getHostname(), configuration.getPort()))
                 .addConverterFactory(JacksonConverterFactory.create(objectMapper))
                 .build();
         imageProcessingInterface = retrofit.create(ImageProcessingInterface.class);

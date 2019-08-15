@@ -1,8 +1,7 @@
 package com.example.springcloudcontract;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.web.bind.annotation.GetMapping;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -10,13 +9,11 @@ import retrofit2.http.POST;
 import java.util.List;
 
 public interface ImageProcessingInterface {
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Getter
+    @Setter
     class MatchingResponse {
-        @Data
-        @NoArgsConstructor
-        @AllArgsConstructor
+        @Getter
+        @Setter
         public static class MatchingItem {
             String oid;
             Float score;
@@ -24,12 +21,11 @@ public interface ImageProcessingInterface {
         List<MatchingItem> pids;
     }
 
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Getter
+    @Setter
     class MatchingRequest {
-        @Data
-        @NoArgsConstructor
+        @Getter
+        @Setter
         @AllArgsConstructor
         public static class ValueItem {
             String type;
