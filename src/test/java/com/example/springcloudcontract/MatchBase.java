@@ -35,8 +35,9 @@ import java.util.UUID;
         repositoryRoot = "git://git@github.com:tuhucon/spring-cloud-contract-git.git",
         ids = {
                 "com.example:spring-cloud-contract-image-git:0.0.1-SNAPSHOT:8081",
-                "com.example:spring-cloud-contract-text-git:0.0.2-SNAPSHOT:8082"
-        }
+                "com.example:spring-cloud-contract-text-git:0.0.3-SNAPSHOT:8082"
+        },
+        mappingsOutputFolder = "/tmp/stubs"
 )
 public abstract class MatchBase {
 
